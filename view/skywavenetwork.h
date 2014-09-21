@@ -10,6 +10,8 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 
+
+
 class skywaveNetwork : public QThread
 {
     Q_OBJECT

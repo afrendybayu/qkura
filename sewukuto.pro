@@ -16,14 +16,18 @@ CONFIG   -= app_bundle
 
 TEMPLATE = app
 
+OBJECTS_DIR = compile
+MOC_DIR = compile
 
 SOURCES += main.cpp \
     model/modelmodem.cpp \
     view/skywavenetwork.cpp \
-    worker.cpp
+    worker.cpp \
+    util/util_skyw.cpp
 
 HEADERS += \
     model/modelmodem.h \
     util/initdb.h \
     view/skywavenetwork.h \
-    worker.h
+    worker.h \
+    util/util_skyw.h

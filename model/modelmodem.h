@@ -4,8 +4,7 @@
 #include <QtSql>
 #include <QSqlTableModel>
 
-class modelModem : public QSqlTableModel
-{
+class modelModem : public QSqlTableModel    {
 public:
     QSqlQueryModel model;
 

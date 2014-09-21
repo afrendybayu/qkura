@@ -12,12 +12,14 @@
 #include <QNetworkReply>
 #include <QXmlStreamReader>
 
+#include "util/util_skyw.h"
+
 class Worker : public QObject
 {
     Q_OBJECT
 public:
     explicit Worker(QObject *parent = 0);
-    
+    QXmlStreamReader xml;
 signals:
     
 public slots:

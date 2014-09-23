@@ -15,8 +15,8 @@ void Worker::doWork() {
     qDebug() << "waktu:"<<dateTime.toString();
 
     skywaveNetwork skw;
-    skw.requestData("wdwd");
-    skw.wait();
+    //skw.requestData("wdwd");
+    //skw.wait();
 }
 
 
@@ -27,7 +27,7 @@ void Worker::getResponSkyW()    {
     qDebug()<< __FUNCTION__;
 
     QNetworkRequest request;
-    QUrl url =  QUrl::fromEncoded("http://isatdatapro.skywave.com/GLGW/GWServices_v1/RestMessages.svc/get_return_messages.xml/?access_id=70000214&password=STSATI2010&from_id=1450235&start_utc=2014-09-23%2000:35:00&mobile_id=01020268SKY7559");
+    QUrl url =  QUrl::fromEncoded("http://isatdatapro.skywave.com/GLGW/GWServices_v1/RestMessages.svc/get_return_messages.xml/?access_id=70000214&password=STSATI2010&from_id=1450235&start_utc=2014-09-23%2007:35:00&mobile_id=01020268SKY7559");
     //QUrl url =  QUrl::fromEncoded("http://localhost");
     request.setUrl(url);
     manager->get(request);

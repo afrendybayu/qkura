@@ -40,7 +40,7 @@ void util_skyw::baca_xml(QString skyw)  {
             if(xml.name() == "RawPayload") {
                 el = xml.readElementText();
                 text.append(el);
-                qDebug()<<"  xmlname: "<<xml.name().toString()<<":"<<el<<" : "<<text.toHex();
+                qDebug()<<"  xmlname: "<<xml.name().toString()<<":"<<el;//<<" : "<<text.toHex();
             }
             if(xml.name() == "ReceiveUTC") {
                 qDebug()<<"  xmlname: "<<xml.name().toString()<<":"<<xml.readElementText();

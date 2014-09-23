@@ -4,7 +4,7 @@
 
 #include <qdebug.h>
 #include "util/initdb.h"
-#include "worker.h"
+#include "controller/worker.h"
 #include "model/modelmodem.h"
 #include "view/skywavenetwork.h"
 

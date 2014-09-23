@@ -74,7 +74,7 @@ QVariant addAuthor(QSqlQuery &q, const QString &name, const QDate &birthdate)
 //*/
 
 void showErrorDB(const QSqlError &err)  {
-    fprintf(stderr, "Error initializing database: ");  //, err.text()
+    fprintf(stderr, "Ada Error nginit database: ");  //, err.text()
     //cout << "Error initializing database: " << err.text();
 }
 

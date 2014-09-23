@@ -12,8 +12,8 @@
 #include <QNetworkReply>
 #include <QXmlStreamReader>
 
-#include "util/util_skyw.h"
-#include "view/skywavenetwork.h"
+#include "../util/util_skyw.h"
+#include "../view/skywavenetwork.h"
 
 class Worker : public QObject
 {

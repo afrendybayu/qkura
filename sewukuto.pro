@@ -22,12 +22,12 @@ MOC_DIR = compile
 SOURCES += main.cpp \
     model/modelmodem.cpp \
     view/skywavenetwork.cpp \
-    worker.cpp \
-    util/util_skyw.cpp
+    util/util_skyw.cpp \
+    controller/worker.cpp
 
 HEADERS += \
     model/modelmodem.h \
     util/initdb.h \
     view/skywavenetwork.h \
-    worker.h \
-    util/util_skyw.h
+    util/util_skyw.h \
+    controller/worker.h

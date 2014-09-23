@@ -1,29 +1,36 @@
 #include "worker.h"
+#include "view/skywavenetwork.h"
 
 
 Worker::Worker(QObject *parent) : QObject(parent)    {
     connect(&timer, SIGNAL(timeout()), this, SLOT(doWork()));
 
-    doWork();
+    this->doWork();
     timer.start(5000);
-    getResponSkyW();
+    //this->getResponSkyW();
 }
 
 void Worker::doWork() {
     QDateTime dateTime = QDateTime::currentDateTime();
     qDebug() << "waktu:"<<dateTime.toString();
+
+    skywaveNetwork skw;
+    skw.requestData("wdwd");
+    skw.wait();
 }
 
 
 void Worker::getResponSkyW()    {
-    QNetworkAccessManager *myNWManager = new QNetworkAccessManager();
-    connect(myNWManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(replyFinished(QNetworkReply *)));
+    QNetworkAccessManager *manager = new QNetworkAccessManager();
+
+    connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(replyFinished(QNetworkReply *)));
     qDebug()<< __FUNCTION__;
 
     QNetworkRequest request;
-    QUrl url =  QUrl::fromEncoded("http://isatdatapro.skywave.com/GLGW/GWServices_v1/RestMessages.svc/get_return_messages.xml/?access_id=70000214&password=STSATI2010&from_id=1450235&start_utc=2014-09-21%2012:35:00&mobile_id=01020268SKY7559");
+    //QUrl url =  QUrl::fromEncoded("http://isatdatapro.skywave.com/GLGW/GWServices_v1/RestMessages.svc/get_return_messages.xml/?access_id=70000214&password=STSATI2010&from_id=1450235&start_utc=2014-09-21%2019:35:00&mobile_id=01020268SKY7559");
+    QUrl url =  QUrl::fromEncoded("http://localhost");
     request.setUrl(url);
-    myNWManager->get(request);
+    manager->get(request);
 }
 
 void Worker::replyFinished(QNetworkReply* reply)    {
@@ -31,6 +38,7 @@ void Worker::replyFinished(QNetworkReply* reply)    {
     qDebug() << "SELESAI replay waktu:"<<dateTime.toString();
 
     QString readAll=reply->readAll();
+    qDebug()<<"isi localhost: "<<readAll;
 
     util_skyw bacaxml;
     bacaxml.baca_xml(readAll);

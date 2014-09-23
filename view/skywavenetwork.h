@@ -5,6 +5,8 @@
 #include <QThread>
 #include <QMutex>
 #include <QWaitCondition>
+
+#include <QtNetwork>
 #include <QUrl>
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
@@ -22,19 +24,21 @@ public:
     ~skywaveNetwork();
 
     void requestData(const QString idmodem);
-    void doDownload(const QUrl &url);
+    //void doDownload(const QUrl &url);
 protected:
     void run();
 
 signals:
     
 public slots:
-    void downloadFinished(QNetworkReply *reply);
+    void replyFinished(QNetworkReply* reply);
 private:
     QMutex mutex;
     QWaitCondition cond;
     QUrl skyw;
     QNetworkReply *reply;
+
+    //QNetworkAccessManager *nam;
 };
 
 #endif // SKYWAVENETWORK_H

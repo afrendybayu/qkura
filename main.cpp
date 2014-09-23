@@ -22,15 +22,14 @@ int main(int argc, char *argv[])
     modelModem modemM;
     //modemM.initializeModel();
 
-
-    qDebug() << "modem: " << modemM.model.record(1).value("name").toString();
     qDebug() << "Tot modem: " << modemM.model.rowCount();
+    for (int i=0; i<modemM.model.rowCount(); i++)   {
+        qDebug() << "id: " << modemM.model.record(i).value("id_ship").toString()
+                 << ", modem: "<<modemM.model.record(i).value("name").toString();
+    }
 
     Worker worker;
 
-    //skywaveNetwork sky;
-    //sky.requestData(modemM.model.record(1).value("name").toString());
-    //sky.terminate();
 
     return a.exec();
 }

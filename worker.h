@@ -13,6 +13,7 @@
 #include <QXmlStreamReader>
 
 #include "util/util_skyw.h"
+#include "view/skywavenetwork.h"
 
 class Worker : public QObject
 {
@@ -30,6 +31,8 @@ private slots:
     void replyFinished(QNetworkReply* reply);
 private:
     QTimer timer;
+
+    //skywaveNetwork skw;
 };
 
 #endif // TIMER_H

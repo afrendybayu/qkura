@@ -7,7 +7,7 @@ Worker::Worker(QObject *parent) : QObject(parent)    {
 
     this->doWork();
     timer.start(5000);
-    //this->getResponSkyW();
+    this->getResponSkyW();
 }
 
 void Worker::doWork() {
